@@ -1,7 +1,11 @@
 let Base_URL =
-  "https://v6.exchangerate-api.com/v6/166d0bec11590445a1efbecd/pair/INR/USD";
+  "https://v6.exchangerate-api.com/v6/166d0bec11590445a1efbecd/pair";
 
 const dropdowns = document.querySelectorAll(".dropdown select");
+const btn = document.querySelector("form button");
+const fromCurr = document.querySelector(".from select");
+const toCurr = document.querySelector(".to select");
+const msg = document.querySelector(".msg");
 
 for (let select of dropdowns) {
   for (let currCode in countryList) {
@@ -30,3 +34,23 @@ const updateFlag = (element) => {
   let img = element.parentElement.querySelector("img");
   img.src = newSrc;
 };
+
+btn.addEventListener("click", async (evt) => {
+  evt.preventDefault();
+  let amount = document.querySelector(".amount input");
+  let amtVal = amount.value;
+  if (amtVal === "" || amtVal < 1) {
+    amtVal = 1;
+    amount.value = "1";
+  }
+
+  // console.log(fromCurr.value, toCurr.value);
+  const URL = `${Base_URL}/${fromCurr.value}/${toCurr.value}`;
+  let response = await fetch(URL);
+  let data = await response.json();
+  let rate = data.conversion_rate;
+  // console.log(rate);
+
+  let finalAmount = amtVal * rate;
+  msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
+});
