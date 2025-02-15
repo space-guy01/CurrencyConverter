@@ -37,7 +37,7 @@ This is a simple currency converter application that allows users to convert amo
    ```
 2. Navigate to the project directory:
    ```sh
-   cd currency-converter
+   cd CurrencyConverter
    ```
 3. Open `index.html` in a browser.
 
@@ -46,10 +46,6 @@ This is a simple currency converter application that allows users to convert amo
 - Select the desired currencies from the dropdown menus.
 - Enter the amount to be converted.
 - Click the "Convert" button to fetch the exchange rate and view the converted amount.
-
-## Screenshots
-
-(Include relevant screenshots here if applicable.)
 
 ## License
 
