@@ -57,6 +57,6 @@ This project is licensed under the MIT License.
 
 ## Author
 
-- Your Name
+- StackOrigin
 - GitHub: [space-guy01](https://github.com/space-guy01)
 - Email: your-arnavsince2009@gmial.com
